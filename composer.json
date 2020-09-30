@@ -1,0 +1,17 @@
+{
+    "name": "dylan7778/forge-deploy",
+    "description": "A simple tool for safely deploying code to Laravel Forge",
+    "type": "composer-plugin",
+    "require": {
+        "php": "^7.0",
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Dillon",
+            "email": "dylan7778@gmail.com",
+            "homepage": "https://dandillon.dev",
+            "role": "Developer"
+        }
+    ]
+}
