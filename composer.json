@@ -12,5 +12,12 @@
             "homepage": "https://dandillon.dev",
             "role": "Developer"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dylan7778\\ForgeDeploy\\ForgeDeployServiceProvider"
+            ]
+        }
+    }
 }
