@@ -3,7 +3,7 @@
     "description": "A simple tool for safely deploying code to Laravel Forge",
     "type": "composer-plugin",
     "require": {
-        "php": "^7.0",
+        "php": "^7.0"
     },
     "license": "MIT",
     "authors": [
