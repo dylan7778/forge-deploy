@@ -11,14 +11,14 @@ class Deploy extends Command
      *
      * @var string
      */
-    protected $signature = 'deploy {no_npm?}';
+    protected $signature = 'deploy {environment} {no_npm?}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Safely deploy your repository to a Laravel Forge server';
 
     /**
      * Create a new command instance.
@@ -37,25 +37,16 @@ class Deploy extends Command
      */
     public function handle()
     {
-        if(env('USER_DIRECTORY')) {
-            if(env('FORGE_DEPLOY_HOOK')) {
-                $branchString = implode('/', array_slice(explode('/', file_get_contents(env('USER_DIRECTORY').'/.git/HEAD')), 2));
-                if(strpos($branchString, 'master') !== false ) {
-
-                    $output = shell_exec('git remote -v');
-                    $repoName = substr($output, strpos($output, "/") + 1);
-                    $repoName = substr($repoName, 0, strpos($repoName, ".git"));
-
-                    $directoryName = explode("/", env('USER_DIRECTORY'));
-                    $directoryName = end($directoryName);
-
-                    if($directoryName != $repoName) {
-                        dd("Your repo name doesn't match your user directory! Make sure you are in the correct folder!");
-                    } else {
+        $envString = 'forge-deploy.environments.'.$this->argument('environment');
+        if($environment = config($envString)) {
+            if(config('forge-deploy.base_directory')) {
+                if(config($envString.'.deployment_webhook')) {
+                    $branchString = implode('/', array_slice(explode('/', file_get_contents(config('forge-deploy.base_directory').'/.git/HEAD')), 2));
+                    if(strpos($branchString, config($envString.'.git_branch')) !== false ) {
                         $output = shell_exec('git status');
 
                         if(strpos($output, 'modified') !== false) {
-                            dd("There are modified files in your directory. Please stash changes or commit files before deploying.");
+                            dd("Whoops! There are modified files in your project. Please stash changes or commit files before deploying.");
                         } else {
                             if($this->argument('no_npm')) {
                                 $output = "";
@@ -74,7 +65,7 @@ class Deploy extends Command
 
                                 $client = new \GuzzleHttp\Client();
                                 $response = $client->get(
-                                    env('FORGE_DEPLOY_HOOK')
+                                    config($envString.'.deployment_webhook')
                                 );
                                 $body = json_decode($response->getBody()->getContents());
                                 $out = new \Symfony\Component\Console\Output\ConsoleOutput();
@@ -86,15 +77,17 @@ class Deploy extends Command
                                 }
                             }
                         }
+                    } else {
+                        dd("Whoops! You are not on master branch but trying to deploy to production! Abort!"); 
                     }
                 } else {
-                    dd("Whoops! You are not on master branch but trying to deploy to production! Abort! Abort!"); 
+                    dd("Whoops! You do not have your Forge deploy hook configured in your env file or in the forge-deploy config file! You can get this webhook from your Forge dashboard.");
                 }
             } else {
-                dd("Whoops! You do not have your Forge Deploy Hook in your env file!");
+                dd("Whoops! You need to store your user directory in your env file or in the forge-deploy config file. Something like this for Mac users: FD_BASE_DIRECTORY=/Users/username/php/project");
             }
         } else {
-            dd("Whoops! You need to store your user directory in your env file. Something like this for Mac users: USER_DIRECTORY=/Users/username/php/project");
+            dd("Whoops! You must call a valid environment that has been declared in the forge-deploy config file. For example, 'php artisan deploy prod' where prod is defined in forge-deploy.php");
         }
     }
 }

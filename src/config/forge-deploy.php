@@ -26,15 +26,15 @@ return [
     */
 
     'environments' => [
-        'prod' => [
-            'environment_type' => 'production',
+        'production' => [
             'npm_build_type' => env('FD_PROD_NPM_TYPE', 'production'),
-            'deployment_webhook' => '',
+            'deployment_webhook' => env('FD_PROD_DEPLOY_HOOK', ''),
+            'git_branch' => env('FD_PROD_GIT_BRANCH', 'master'),
         ],
         'staging' => [
-            'environment_type' => 'staging',
             'npm_build_type' => env('FD_STAGING_NPM_TYPE', 'dev'),
-            'deployment_webhook' => ''
+            'deployment_webhook' => env('FD_STAGING_DEPLOY_HOOK', ''),
+            'git_branch' => env('FD_STAGING_GIT_BRANCH', 'staging'),
         ],
     ],
 

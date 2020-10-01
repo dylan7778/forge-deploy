@@ -50,8 +50,6 @@ To get up and running, follow these simple steps:
 
 * This package utilizes the local file system to read your git config file, so you can only use this in a git-controlled project. It is currently configured to work on Linux style systems, such as Mac. Windows support is coming soon.
 
-* **Important**: This package requires that your project is stored locally in a folder with the *same name* as its github repository. For example, if your github repo is called 'best-repo', your local project will need to be stored in a root folder with the same name (e.g. /Users/user/php/best-repo).
-
 ### Installation
 1. Add the package to your project using composer
 
@@ -72,24 +70,25 @@ Global Parameters:
 * 'base_directory': The absolute path to your project on your local filesystem (e.g. /Users/user/php/project-name)
 
 Environment Specific Parameters:
-* 'environment_type': production/staging, etc.
 * 'npm_build_type': production/dev - set this appropriately depending on the environment
 * 'deployment_webhook': Your deployment webhook provided in the Laravel Forge dashboard
+* 'git_branch': The branch you wish to deploy for this environment (e.g. 'master','dev' or 'staging')
 
 An example config featuring a production and staging environment is shown below:
 
 	'base_directory' => '/Users/user/php/project-name',
 	'environments' => [
-        'prod' => [
-            'environment_type' => 'production',
+        'production' => [
             'npm_build_type' => 'production',
-            'deployment_webhook' => 'https://forge.laravel.com/servers/1234567/sites/1234567/deploy/...'
+            'deployment_webhook' => 'https://forge.laravel.com/servers/1234567/sites/1234567/deploy/...',
+            'git_branch' => 'master',
         ],
         'staging' => [
-            'environment_type' => 'staging',
             'npm_build_type' => 'dev',
-            'deployment_webhook' => 'https://forge.laravel.com/servers/4567891/sites/4567891/deploy/...'
+            'deployment_webhook' => 'https://forge.laravel.com/servers/4567891/sites/4567891/deploy/...',
+            'git_branch' => 'staging',
         ],
+    ]
 
 Once you have finished the basic setup, you can now run your deployment code directly from your root folder. The command is:
 
@@ -101,7 +100,7 @@ There are two flags in this command. The first is the environment name, and the 
 
 * Deploy to production environment and include the npm run command:
 ```sh
-php artisan deploy prod
+php artisan deploy production
 ```
 
 * Deploy to staging environment and do not include the npm run command:
