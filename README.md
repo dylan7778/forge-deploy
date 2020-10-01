@@ -6,21 +6,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-	<!-- <a href="https://github.com/dylan7778/forge-deploy">
-		<img src="images/logo.png" alt="Logo" width="80" height="80">
-	</a> -->
+	<a href="https://dandillon.dev">
+		<img src="images/logo.jpg" alt="Logo" width="100" height="100">
+	</a>
 	<h3 align="center">Forge Deploy</h3>
 	<p align="center">
 		A safer, more robust way to deploy your code to Laravel Forge
-		<br />
-		<a href="https://github.com/dylan7778/forge-deploy"><strong>Explore the docs »</strong></a>
-		<br />
-		<br />
-		<a href="https://github.com/dylan7778/forge-deploy">View Demo</a>
-		·
-		<a href="https://github.com/dylan7778/forge-deploy/issues">Report Bug</a>
-		·
-		<a href="https://github.com/dylan7778/forge-deploy/issues">Request Feature</a>
 	</p>
 </p>
 <p align="center"><a href="https://dandillon.dev" target="_blank">DanDillon.dev</a></p>
@@ -95,16 +86,16 @@ Once you have finished the basic setup, you can now run your deployment code dir
 php artisan deploy {environment} {run_npm?}
 ```
 
-There are two flags in this command. The first is the environment name, and the other is a boolean which tells the script whether to execute the <code>npm run</code> code before deploying. In some cases, after modifying only backend PHP files, you won't want to wait for the <code>npm run production</code> command when you deploy, so you can manually override by setting this to false. By omitting this flag or setting it to true, the npm commands will be run. Here are some examples:
+There are two flags in this command. The first is the environment name, and the other is an optional paramter which tells the script whether to execute the <code>npm run</code> build code before deploying. In some cases, like when modifying only backend PHP files, you may not want to have to wait for the <code>npm run production</code> command when you deploy, so you can manually override by adding this option. By default, the npm commands will always be run if you do not specify the 'no_npm' flag. Here are some examples:
 
-* Deploy to production environment and include the npm run command:
+* Deploy to production environment and include the npm build command:
 ```sh
 php artisan deploy production
 ```
 
-* Deploy to staging environment and do not include the npm run command:
+* Deploy to staging environment and do not include the npm build command:
 ```sh
-php artisan deploy staging false
+php artisan deploy staging no_npm
 ```
 
 <!-- CONTRIBUTING -->
