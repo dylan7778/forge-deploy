@@ -87,7 +87,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-Your Name - [@dandillondev](https://twitter.com/dandillondev) - dan@dandillon.dev
+Dan Dillon - [@dandillondev](https://twitter.com/dandillondev) - dan@dandillon.dev
+
 Project Link: [https://github.com/dylan7778/forge-deploy](https://github.com/dylan7778/forge-deploy)
 
 <!-- MARKDOWN LINKS & IMAGES -->
