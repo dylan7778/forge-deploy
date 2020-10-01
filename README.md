@@ -32,7 +32,6 @@
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
@@ -107,10 +106,6 @@ php artisan deploy production
 ```sh
 php artisan deploy staging false
 ```
-
-<!-- ROADMAP -->
-## Roadmap
-See the [open issues](https://github.com/dylan7778/forge-deploy/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
