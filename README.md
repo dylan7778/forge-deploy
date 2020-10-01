@@ -92,16 +92,16 @@ Project Link: [https://github.com/dylan7778/forge-deploy](https://github.com/dyl
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/dylan7778/repo.svg?style=flat-square
-[contributors-url]: https://github.com/dylan7778/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/dylan7778/repo.svg?style=flat-square
-[forks-url]: https://github.com/dylan7778/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/dylan7778/repo.svg?style=flat-square
-[stars-url]: https://github.com/dylan7778/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/dylan7778/repo.svg?style=flat-square
-[issues-url]: https://github.com/dylan7778/repo/issues
-[license-shield]: https://img.shields.io/github/license/dylan7778/repo.svg?style=flat-square
-[license-url]: https://github.com/dylan7778/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/dylan7778/forge-deploy.svg?style=flat-square
+[contributors-url]: https://github.com/dylan7778/forge-deploy/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/dylan7778/forge-deploy.svg?style=flat-square
+[forks-url]: https://github.com/dylan7778/forge-deploy/network/members
+[stars-shield]: https://img.shields.io/github/stars/dylan7778/forge-deploy.svg?style=flat-square
+[stars-url]: https://github.com/dylan7778/forge-deploy/stargazers
+[issues-shield]: https://img.shields.io/github/issues/dylan7778/forge-deploy.svg?style=flat-square
+[issues-url]: https://github.com/dylan7778/forge-deploy/issues
+[license-shield]: https://img.shields.io/github/license/dylan7778/forge-deploy.svg?style=flat-square
+[license-url]: https://github.com/dylan7778/forge-deploy/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/dylan7778
 [product-screenshot]: images/screenshot.png
