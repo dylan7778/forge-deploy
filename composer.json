@@ -13,6 +13,7 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Dylan7778\\ForgeDeploy\\": "src"
