@@ -2,8 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![License][license-shield]][license-url]
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -103,6 +102,4 @@ Project Link: [https://github.com/dylan7778/forge-deploy](https://github.com/dyl
 [issues-url]: https://github.com/dylan7778/forge-deploy/issues
 [license-shield]: https://img.shields.io/github/license/dylan7778/forge-deploy.svg?style=flat-square
 [license-url]: https://github.com/dylan7778/forge-deploy/blob/master/LICENSE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/dylan7778
 [product-screenshot]: images/screenshot.png
