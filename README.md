@@ -10,12 +10,14 @@
 	<p align="center">
 		A safer, more robust way to deploy your code to Laravel Forge.
 	</p>
-    <p align="center" style="font-size: 10px;">
+    <p align="center">
         A lightweight Laravel package developed by:
     </p>
-    <a href="https://dandillon.dev">
-        <img src="images/logo.jpg" alt="Logo" width="100" height="100">
-    </a>
+    <p align="center">
+        <a href="https://dandillon.dev">
+            <img src="images/logo.jpg" alt="Logo" width="100" height="100">
+        </a>
+    </p>
 </p>
 <p align="center"><a href="https://dandillon.dev" target="_blank">DanDillon.dev</a></p>
 
