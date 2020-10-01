@@ -71,7 +71,7 @@ class Deploy extends Command
                                 $out = new \Symfony\Component\Console\Output\ConsoleOutput();
 
                                 if($response->getStatusCode()==200) {
-                                    $out->writeln("Deployment Success!");
+                                    $out->writeln("Deployment sent to Forge successfully! Note: This does not guarantee that the deployment itself was successful.");
                                 } else {
                                     $out->writeln("Deployment Failure");
                                 }

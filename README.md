@@ -6,13 +6,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-	<a href="https://dandillon.dev">
-		<img src="images/logo.jpg" alt="Logo" width="100" height="100">
-	</a>
-	<h3 align="center">Forge Deploy</h3>
+	<h3 align="center">Forge-Deploy</h3>
 	<p align="center">
-		A safer, more robust way to deploy your code to Laravel Forge
+		A safer, more robust way to deploy your code to Laravel Forge.
 	</p>
+    <p align="center" style="font-size: 10px;">
+        A lightweight Laravel package developed by:
+    </p>
+    <a href="https://dandillon.dev">
+        <img src="images/logo.jpg" alt="Logo" width="100" height="100">
+    </a>
 </p>
 <p align="center"><a href="https://dandillon.dev" target="_blank">DanDillon.dev</a></p>
 
@@ -33,7 +36,6 @@ Forge Deploy is a lightweight package meant to help you make safe deployments to
 
 <!-- GETTING STARTED -->
 ## Getting Started
-To get up and running, follow these simple steps:
 
 ### Prerequisites
 * This package works with Laravel 5+ and PHP 7+, and utilizes package auto-discovery.
@@ -97,6 +99,13 @@ php artisan deploy production
 ```sh
 php artisan deploy staging no_npm
 ```
+
+<!-- USAGE NOTES -->
+### Important Notes
+* Before using this package, please make sure that you turn off Quick Deploy from the Forge dashboard.
+* This package is meant to save you from accidentally deploying code from the wrong branch onto your live server. In order to do this, a check is made to compare your current git branch vs. the expected git branch in your config file for the given environment. In addition, a check is made to make sure that you have a clean commit to your chosen branch, so you will not be able to deploy until you commit or stash all changes.
+* This package does NOT verify deployment success at the server level, it only verifies that the webhook is sent to Forge and receives a 200 status code in response. If an error occurs on your server, it is your responsibliity to monitor for that and handle it appropriately. Handling this automatically with Forge webhooks will be a goal of a future release.
+
 
 <!-- CONTRIBUTING -->
 ## Contributing
