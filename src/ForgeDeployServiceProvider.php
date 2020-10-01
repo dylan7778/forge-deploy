@@ -26,8 +26,8 @@ class ForgeDeployServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->publishes([
-        //     __DIR__.'forge-deploy.php' => config_path('forge-deploy.php'),
-        // ]);
+        $this->publishes([
+            __DIR__.'/config/forge-deploy.php' => config_path('forge-deploy.php'),
+        ]);
     }
 }

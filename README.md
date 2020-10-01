@@ -46,26 +46,68 @@ Forge Deploy is a lightweight package meant to help you make safe deployments to
 To get up and running, follow these simple steps:
 
 ### Prerequisites
-This package works with Laravel 5+ and PHP 7+, and utilizes package auto-discovery.
+* This package works with Laravel 5+ and PHP 7+, and utilizes package auto-discovery.
 
-This project utilizes the local file system to load your git config file, and is configured to work on Linux style systems, such as Mac. Windows support coming soon.
+* This package utilizes the local file system to read your git config file, so you can only use this in a git-controlled project. It is currently configured to work on Linux style systems, such as Mac. Windows support is coming soon.
 
-This package requires that your project is stored locally in a folder with the *same name* as its github repository. For example, if your github repo is called 'best-repo', your local project will need to be stored in a root folder with the same name (e.g. /Users/user/php/best-repo).
+* **Important**: This package requires that your project is stored locally in a folder with the *same name* as its github repository. For example, if your github repo is called 'best-repo', your local project will need to be stored in a root folder with the same name (e.g. /Users/user/php/best-repo).
 
 ### Installation
 1. Add the package to your project using composer
+
 ```sh
 composer require dylan7778/forge-deploy --dev
 ```
 2. Publish config file
+
 ```sh
 php artisan vendor:publish
 ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-_For more examples, please refer to the [Documentation](https://example.com)_
+To use the package, you will first need to set up some basic paramters in the published config file. We recommend you store these paramaters in your ENV file, but you can store them directly in the config file if you wish. You will have the option to set up multiple environments, each stored as an array of paramters for that specific deployment target.
+
+Global Parameters:
+* 'base_directory': The absolute path to your project on your local filesystem (e.g. /Users/user/php/project-name)
+
+Environment Specific Parameters:
+* 'environment_type': production/staging, etc.
+* 'npm_build_type': production/dev - set this appropriately depending on the environment
+* 'deployment_webhook': Your deployment webhook provided in the Laravel Forge dashboard
+
+An example config featuring a production and staging environment is shown below:
+
+	'base_directory' => '/Users/user/php/project-name',
+	'environments' => [
+        'prod' => [
+            'environment_type' => 'production',
+            'npm_build_type' => 'production',
+            'deployment_webhook' => 'https://forge.laravel.com/servers/1234567/sites/1234567/deploy/...'
+        ],
+        'staging' => [
+            'environment_type' => 'staging',
+            'npm_build_type' => 'dev',
+            'deployment_webhook' => 'https://forge.laravel.com/servers/4567891/sites/4567891/deploy/...'
+        ],
+
+Once you have finished the basic setup, you can now run your deployment code directly from your root folder. The command is:
+
+```sh
+php artisan deploy {environment} {run_npm?}
+```
+
+There are two flags in this command. The first is the environment name, and the other is a boolean which tells the script whether to execute the <code>npm run</code> code before deploying. In some cases, after modifying only backend PHP files, you won't want to wait for the <code>npm run production</code> command when you deploy, so you can manually override by setting this to false. By omitting this flag or setting it to true, the npm commands will be run. Here are some examples:
+
+* Deploy to production environment and include the npm run command:
+```sh
+php artisan deploy prod
+```
+
+* Deploy to staging environment and do not include the npm run command:
+```sh
+php artisan deploy staging false
+```
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -82,7 +124,7 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- LICENSE -->
 ## License
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE.md` for more information.
 
 <!-- CONTACT -->
 ## Contact
