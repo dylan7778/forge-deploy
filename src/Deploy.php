@@ -43,7 +43,7 @@ class Deploy extends Command
                 if(config($envString.'.deployment_webhook')) {
                     $branchString = implode('/', array_slice(explode('/', file_get_contents(config('forge-deploy.base_directory').'/.git/HEAD')), 2));
                     if(strpos($branchString, config($envString.'.git_branch')) !== false ) {
-                        if(count(config('forge-deploy.required_vars')) > 0) {
+                        if(is_countable(config('forge-deploy.required_vars')) && count(config('forge-deploy.required_vars')) > 0) {
                             foreach(config('forge-deploy.required_vars') as $var) {
                                 if(env($var) == null) {
                                     dd("Whoops. You don't have the required ENV variable called ". $var);
