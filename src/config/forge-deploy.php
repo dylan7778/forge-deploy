@@ -38,4 +38,19 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Required ENV Variables
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the different ENV variables that MUST be present to
+    | build your deployments. If any of these variables are missing, the 
+    | deployment will not be made. Array of String var names:
+    |
+    | e.g. ['MIX_PUSHER_APP_KEY','MIX_PUSHER_APP_CLUSTER']
+    */
+
+    'required_vars' => [
+        // ['MIX_PUSHER_APP_KEY','MIX_PUSHER_APP_CLUSTER'],
+    ],
 ];
