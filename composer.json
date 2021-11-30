@@ -1,6 +1,6 @@
 {
     "name": "dylan7778/forge-deploy",
-    "description": "A simple tool for safely deploying code to Laravel Forge",
+    "description": "A simple tool for safely deploying code to Laravel Forge.",
     "require": {
         "php": ">=7.0"
     },
