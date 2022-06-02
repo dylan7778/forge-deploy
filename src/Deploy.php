@@ -61,7 +61,7 @@ class Deploy extends Command
 
                                 system('git commit -m "Auto Commit for deployment"');
 
-                                system('git push origin master');
+                                system('git push origin ' . config($envString.'.git_branch'));
 
                                 $client = new \GuzzleHttp\Client();
                                 $response = $client->get(
