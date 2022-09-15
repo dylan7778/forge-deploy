@@ -102,6 +102,13 @@ php artisan deploy production
 php artisan deploy staging no_npm
 ```
 
+You may also deploy to all of your environments at once by using "all" as your environment keyword. Please note that this can only be done when you are working on the same branch for each environment. This package will automatically check to make sure that each environment is on the same branch and has a valid webhook, and then it will push the changes to each environment using the following command:
+
+* Deploy to all environments:
+```sh
+php artisan deploy all
+```
+
 <!-- USAGE NOTES -->
 ### Important Notes
 * Before using this package, please make sure that you turn off Quick Deploy from the Forge dashboard.
